@@ -15,14 +15,14 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        logger.debug("Welcome to example.com...");
+        logger.debug("Welcome to was...");
         model.addAttribute("msg", getMessage());
         model.addAttribute("today", new Date());
         return "index";
     }
 
     private String getMessage() {
-        return "Hello World";
+        return "New Version, New Generation";
     }
 
 }
