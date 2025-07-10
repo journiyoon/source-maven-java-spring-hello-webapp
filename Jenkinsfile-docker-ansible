@@ -29,21 +29,21 @@ pipeline {
     stage('Build Docker Image') {
       agent { label 'controller' }
       steps {
-        sh 'docker image build -t journiyoon/ansible:$BUILD_NUMBER .'
+        sh 'docker image build -t journiyoon/doodweb:$BUILD_NUMBER .'
       }
     }
     stage('Tag Docker Image') {
       agent { label 'controller' }
       steps {
-        sh 'docker image tag journiyoon/ansible:$BUILD_NUMBER journiyoon/ansible:latest' // Tagging with build number
+        sh 'docker image tag journiyoon/doodweb:$BUILD_NUMBER journiyoon/ansible:latest' // Tagging with build number
       }
     }
     stage('Publish Docker Image') {
       agent { label 'controller' }
       steps {
         withDockerRegistry(credentialsId: 'docker-registry-credential', url: 'https://index.docker.io/v1/') {
-          sh 'docker image push journiyoon/ansible:$BUILD_NUMBER' // Tagging with build number
-          sh 'docker image push journiyoon/ansible:latest' // Tagging with latest
+          sh 'docker image push journiyoon/doodweb:$BUILD_NUMBER' // Tagging with build number
+          sh 'docker image push journiyoon/doodweb:latest' // Tagging with latest
         }
       }
     }
