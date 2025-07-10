@@ -35,8 +35,7 @@ pipeline {
     stage('Tag Docker Image') {
       agent { label 'controller' }
       steps {
-        sh 'docker image tag journiyoon/ansible:$BUILD_NUMBER' // Tagging with build number
-        sh 'docker image tag journiyoon/ansible:latest' // Tagging with build number
+        sh 'docker image tag journiyoon/ansible:$BUILD_NUMBER journiyoon/ansible:latest' // Tagging with build number
       }
     }
     stage('Publish Docker Image') {
