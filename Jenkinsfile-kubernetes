@@ -74,7 +74,7 @@ spec:
         githubRepo = 'argocd-test' //jenkins-kube-deploy
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
         dockerhubId = 'journiyoon' //myaccount
-        dockerhubRepo = 'journiyoon/doodweb' //hello-world
+        dockerhubRepo = 'doodweb' //hello-world
       }
       steps {
         container('git') {
